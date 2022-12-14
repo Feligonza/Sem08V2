@@ -2,9 +2,13 @@ package com.sem08v2.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.sem08v2.databinding.LugarFilaBinding
 import com.sem08v2.model.Lugar
+import com.sem08v2.ui.home.AddLugarFragmentDirections
+import com.sem08v2.ui.home.HomeFragmentDirections
+import com.sem08v2.ui.home.UpdateLugarFragmentDirections
 
 class LugarAdapter: RecyclerView.Adapter<LugarAdapter.LugarViewHolder>() {
 
@@ -17,10 +21,15 @@ class LugarAdapter: RecyclerView.Adapter<LugarAdapter.LugarViewHolder>() {
     }
 
     inner class LugarViewHolder(private val itemBinding: LugarFilaBinding) : RecyclerView.ViewHolder(itemBinding.root){
-        fun dibujar(propiedad: Lugar){
-            itemBinding.tvNombre.text = propiedad.nombre
-            itemBinding.tvCorreo.text = propiedad.correo.toString()
-            itemBinding.tvTelefono.text = propiedad.telefono
+        fun dibujar(lugar: Lugar){
+            itemBinding.tvNombre.text = lugar.nombre
+            itemBinding.tvCorreo.text = lugar.correo.toString()
+            itemBinding.tvTelefono.text = lugar.telefono
+            //Evento enviar Update
+            itemBinding.vistaFila.setOnClickListener{
+                val accion = HomeFragmentDirections.actionNavHomeToUpdateLugarFragment(lugar)
+                itemView.findNavController().navigate(accion)
+            }
         }
 
     }
