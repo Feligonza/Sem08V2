@@ -29,4 +29,10 @@
     <string name="btUpdateLugar"> Actualizar Lugar </string>
     <string name="btDeleteLugar"> Eliminar Lugar </string>
 
+    <string name="todo"> TODO </string>
+    <string name="msg_imagen"> Foto del lugar </string>
+    <string name="msgEscucharAudio"> Escucando Audio </string>
+    <string name="msgInicioNotaAudio"> Grabando </string>
+    <string name="msgDetieneNotaAudio"> Detiene Audio </string>
+
 </resources>

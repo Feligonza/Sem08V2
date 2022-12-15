@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.sem08v2.R
 import com.sem08v2.databinding.FragmentAddLugarBinding
 import com.sem08v2.model.Lugar
+import com.sem08v2.utilidades.AudioUtiles
 import com.sem08v2.viewModel.HomeViewModel
 
 class AddLugarFragment : Fragment() {
@@ -18,6 +19,8 @@ class AddLugarFragment : Fragment() {
     private var _binding: FragmentAddLugarBinding? = null
     private val binding get() = _binding!!
     private lateinit var homeViewModel: HomeViewModel
+
+    private lateinit var audioUtiles: AudioUtiles
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +31,9 @@ class AddLugarFragment : Fragment() {
         _binding = FragmentAddLugarBinding.inflate(inflater, container, false)
 
         binding.btAgregar.setOnClickListener{ agregarLugar() }
+
+        //Audio
+        audioUtiles = AudioUtiles(requireActivity(),requireContext(),binding.btAccion,binding.btPlay,binding.btDelete, getString(R.string.msgInicioNotaAudio), getString(R.string.msgDetieneNotaAudio))
 
         // Inflate the layout for this fragment
         return binding.root
