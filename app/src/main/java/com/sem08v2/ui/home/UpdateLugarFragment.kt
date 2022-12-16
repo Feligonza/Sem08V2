@@ -49,7 +49,7 @@ class UpdateLugarFragment : Fragment() {
         val telefono=binding.etTelefono.text.toString()
         val web=binding.etWeb.text.toString()
         if (nombre.isNotEmpty()) {
-            val lugar = Lugar(args.lugarArg.id, nombre, correo, telefono, web)
+            val lugar = Lugar(args.lugarArg.id, nombre, correo, telefono, web,args.lugarArg.rutaAudio, args.lugarArg.rutaImagen)
 
             homeViewModel.guardarLugar(lugar)
             Toast.makeText(requireContext(),getString(R.string.ms_UpdateLugar),Toast.LENGTH_SHORT).show()

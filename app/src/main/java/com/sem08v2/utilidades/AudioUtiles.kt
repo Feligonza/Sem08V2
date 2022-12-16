@@ -8,13 +8,18 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.media.MediaPlayer
 import android.media.MediaRecorder
+import android.os.Build
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.sem08v2.R
+
 import java.io.File
 import java.io.IOException
+
+@RequiresApi(Build.VERSION_CODES.O)
 
 class AudioUtiles(
 
@@ -68,7 +73,7 @@ class AudioUtiles(
         val archivo = OtrosUtiles.getTempFile("audio_")
         audioFile = File.createTempFile(archivo, ".mp3")
         mediaRecorder = MediaRecorder()
-        mediaRecorder!!.setAudioChannels(MediaRecorder.AudioSource.MIC)
+        mediaRecorder!!.setAudioSource(MediaRecorder.AudioSource.DEFAULT)
         mediaRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
         mediaRecorder!!.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
         mediaRecorder!!.setOutputFile(audioFile)

@@ -34,5 +34,6 @@
     <string name="msgEscucharAudio"> Escucando Audio </string>
     <string name="msgInicioNotaAudio"> Grabando </string>
     <string name="msgDetieneNotaAudio"> Detiene Audio </string>
+    <string name="msgSubiendo"> Subiendo archivos </string>
 
 </resources>
